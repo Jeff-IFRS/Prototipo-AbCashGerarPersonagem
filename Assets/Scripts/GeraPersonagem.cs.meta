@@ -3,7 +3,16 @@ guid: bf09a471fcee28c429b93f4bd8ff2250
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Sprite1: {fileID: 21300000, guid: a52c71e77d654cc42b70bdcf9ae0620f, type: 3}
+  - Sprite2: {fileID: 21300000, guid: 35afb9d540fccc74f9d06323a094893c, type: 3}
+  - Sprite3: {fileID: 21300000, guid: 9d8dbcd2c8c0a1b43a937ba76cd7ab15, type: 3}
+  - NameText: {instanceID: 0}
+  - PlanetText: {instanceID: 0}
+  - RaceText: {instanceID: 0}
+  - AgeText: {instanceID: 0}
+  - AgilityText: {instanceID: 0}
+  - InteligenceText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

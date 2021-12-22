@@ -8,10 +8,13 @@ public class GeraPersonagem : MonoBehaviour {
     public string Planet;
     public string Race;
     public string Name;
-    //public int LastName;
+    public int LastName;
     public int Rank;
+    public string stringAge;
     public int Age;
+    public string stringAgility;
     public int Agility;
+    public string stringKnowledge;
     public int Knowledge;
     public string Status;
     public bool Transportrequiriment;
@@ -20,7 +23,7 @@ public class GeraPersonagem : MonoBehaviour {
     public string Galaxy;
 
     //Textos que recebem as variaveis
-    [Header("Dados do Personagem UI")]
+    [Header("Textos")]
     public Text NameText;
     public Text PlanetText;
     public Text RaceText;
@@ -28,7 +31,7 @@ public class GeraPersonagem : MonoBehaviour {
     public Text AgilityText;
     public Text InteligenceText;
 
-    void start() {
+    void Start() {
         Set_maxrank();
     }
 
@@ -46,7 +49,7 @@ public class GeraPersonagem : MonoBehaviour {
 
     //seleciona aleatóriamente o planeta de origem do personagem
     private void Select_randomplanet() {
-        string[] planets = new string[] {"Vênus", "Terra", "Marte"};
+        string[] planets = new string[] {"Venus", "Terra", "Marte"};
         Planet = planets[Random.Range(0, planets.Length)];
         Galaxy = "Via Láctea";
         Select_race();
@@ -112,6 +115,7 @@ public class GeraPersonagem : MonoBehaviour {
             };
             Name = marcian_names[Random.Range(0,marcian_names.Length)];
         }
+        Set_Age();
     }
 
     //seleciona a idade conforme a raça
@@ -123,6 +127,7 @@ public class GeraPersonagem : MonoBehaviour {
         } else {
             Age = Random.Range(10, 17);
         }
+        stringAge = Age.ToString();
         Set_Agility();
     }
 
@@ -130,12 +135,13 @@ public class GeraPersonagem : MonoBehaviour {
     private void Set_Agility() {
         int random_agility = Random.Range(100, 600);
         if (Race == "Terraqueo") {
-            Agility = (random_agility * 2 * Rank) - (4 * Age);
+            Agility = (random_agility * 2 * Rank);
         } else if (Race == "Venusiano") {
-            Agility = (random_agility * 4 * Rank) - (6 * Age);
+            Agility = (random_agility * 4 * Rank);
         } else {
-            Agility = (random_agility * 1 * Rank) - (1 * Age);
+            Agility = (random_agility * 1 * Rank);
         }
+        stringAgility = Agility.ToString();
         Set_knowledge();
     }
 
@@ -143,12 +149,13 @@ public class GeraPersonagem : MonoBehaviour {
     private void Set_knowledge(){
         int random_knowledge = Random.Range(10, 300);
         if (Race == "Terraqueo") {
-            Knowledge = (random_knowledge * 1 * Rank) + (2 * Age);
+            Knowledge = (random_knowledge * 1 * Rank) + Age;
         } else if (Race == "Venusiano") {
-            Knowledge = (random_knowledge * 2 * Rank) + (3 * Age);
+            Knowledge = (random_knowledge * 2 * Rank) + Age;
         } else {
-            Knowledge = (random_knowledge * 4 * Rank) + (6 * Age);
+            Knowledge = (random_knowledge * 4 * Rank) + Age;
         }
+        stringKnowledge = Knowledge.ToString();
         Transport_Requirement();
     }
 
@@ -160,13 +167,12 @@ public class GeraPersonagem : MonoBehaviour {
         }
         ShowText();
     }
-
     void ShowText(){
         NameText.text = Name;
         PlanetText.text = Planet;
         RaceText.text = Race;
-        //AgeText.text = Age;
-        //AgilityText.text = Agility;
-        //InteligenceText.text = Knowledge;
+        AgeText.text = stringAge;
+        AgilityText.text = stringAgility;
+        InteligenceText.text = stringKnowledge;
     }
 }
