@@ -43,7 +43,7 @@ public class GeraPersonagem : MonoBehaviour {
 
     //seleciona aleatóriamente o rank do personagem
     private void Select_randomrank(int maxrank) {
-        Rank = Random.Range(0, maxrank + 1);
+        Rank = Random.Range(1, maxrank);
         Select_randomplanet();
     }
 
@@ -133,7 +133,7 @@ public class GeraPersonagem : MonoBehaviour {
 
     //seleciona o nível de agilidade conforme a raça, idade e rank.
     private void Set_Agility() {
-        int random_agility = Random.Range(100, 600);
+        int random_agility = Random.Range(1, 10);
         if (Race == "Terraqueo") {
             Agility = (random_agility * 2 * Rank);
         } else if (Race == "Venusiano") {
@@ -147,7 +147,7 @@ public class GeraPersonagem : MonoBehaviour {
 
     //seleciona o nível de conhecimento conforme a idade, raça e rank.
     private void Set_knowledge(){
-        int random_knowledge = Random.Range(10, 300);
+        int random_knowledge = Random.Range(1, 10);
         if (Race == "Terraqueo") {
             Knowledge = (random_knowledge * 1 * Rank) + Age;
         } else if (Race == "Venusiano") {
@@ -167,6 +167,7 @@ public class GeraPersonagem : MonoBehaviour {
         }
         ShowText();
     }
+
     void ShowText(){
         NameText.text = Name;
         PlanetText.text = Planet;
